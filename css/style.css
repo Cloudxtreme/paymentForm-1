@@ -1,0 +1,164 @@
+/*********** Table of Contents ***********/
+
+
+
+/*********** Table of Contents ***********/
+body {
+	background: #eee;
+	font-family: 'Open Sans', helvetica, arial, sans-serif;
+
+}
+
+.section {
+	margin-bottom: 2%;
+}
+#confirmation {
+	/*display: none;*/
+}
+footer,
+section {
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 2.5%;
+}
+
+
+/*************** Typography ***************/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Open Sans', helvetica, arial, sans-serif;
+	font-weight: 300;
+
+}
+h1 {
+}
+h2 {
+	display: block;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+p {
+	color: #777;
+}
+
+.center {
+	text-align: center;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+
+label,
+input {
+	display: block;
+	font-size: 16px;
+}
+label {
+	color: #777;
+	font-size: 14px;
+}
+input[type='text'] {
+	border: 2px solid #eee;
+	margin-bottom: 15px;
+	outline: none;
+	padding: 3px;
+	/*width: 95%;*/
+}
+input[type='text']:focus {
+	border: 2px solid #63A3CE;
+}
+input.error {
+	background: rgba( 200, 200, 50, .3);
+	border: 2px solid #FC8686;
+}
+.error-message {
+	color: red;
+	content: "*Required";
+	display: inline-block;
+	font-size: 12px;
+	margin-left: 5px;
+}
+input[type='submit'] {
+	background: linear-gradient(#f8f8f8, #eef, #ddf);
+	border: 2px solid #ddd;
+	color: #777;
+	cursor: pointer;
+	font-size: 14px;
+	outline: none;
+	padding: 5px 10px;
+}
+input[type='submit']:disabled {
+	background: #ddd;
+	color: #ccc;
+	cursor: default;
+}
+input[type='submit']:enabled:hover {
+	background: linear-gradient(#ddf, #eef);
+	color: #444;
+}
+.form-container {
+	border: 1px solid #ccc;
+	padding: 2.5%;
+	width: 50%;
+
+}
+.header-wrap {
+	background: linear-gradient(#C90000, #B80000);
+	margin-bottom: 2%;
+	padding: 15px 0;
+}
+
+/* Main Navigation Styles */
+.nav-main {
+	margin-top: 10px;
+}
+.nav-main .nav-item {
+	display: inline-block;
+}
+.nav-main .nav-link {
+	color: #fff;
+	display: block;
+	font-family: "Bree Serif", serif;
+	font-size: 20px;
+	font-weight: 300;
+	padding: 10px;
+	text-decoration: none;
+}
+.nav-main .nav-link:hover {
+	background: #990000;
+}
+
+/* Footer Navigation Styles */
+.nav-footer {
+
+}
+.nav-footer .nav-link {
+	color: #888;
+	display: block;
+	font-size: 12px;
+	float: left;
+	margin: 0 5px;
+	text-decoration: none;
+}
+.nav-footer .nav-link:hover {
+	border-bottom: 1px solid red;
+}
+.copy {
+	color: #888;
+	font-size: 12px;
+}
+
+
+
+
+
+
+
