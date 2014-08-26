@@ -13,20 +13,57 @@ function BillingForm( container, inputs ) {
 	};
 	this.validated = false;
 }
-BillingForm.prototype.validateField = function( input, errorMessage ){
-	
-};
+
 BillingForm.prototype.validateForm = function( inputs ){
-	
+	inputs.each(function( i, input ){
+		var name = $(this).data("name"),
+			val = $(this).val();
+
+		switch(name) {
+			case 'first-name':
+				if (val) {
+					BillingForm.validation.firstName = true;
+				}
+				break;
+			case 'last-name':
+				if (val) {
+					BillingForm.validation.lastName = true;
+				}
+				break;
+			case 'street-address-1':
+				if (val) {
+					BillingForm.validation.streetAddress1 = true;
+				}
+				break;
+			case 'city':
+				if (val) {
+					BillingForm.validation.city = true;
+				}
+				break;
+			case 'state':
+				if (val) {
+					BillingForm.validation.state = true;
+				}
+				break;
+			case 'zip':
+				if (val) {
+					BillingForm.validation.zip = true;
+				}
+				break;
+			default:
+				return;
+		}
+	});
+	// Iterate through each input and verify valid input
 };
 BillingForm.prototype.activateSubmit = function(){
-
+	// When all fields are properly filled, activate the submit button
 };
 BillingForm.prototype.pushInfo = function(){
-	
+	// Push info into customerInfo object
 };
 BillingForm.prototype.displayConfirmation = function(){
-
+	// Pull info from customerInfo object and display
 };
 
 
@@ -40,11 +77,15 @@ var $info = $("#info"),
 var billingForm = new BillingForm( $form, $inputs );
 
 $form.on( "change", function(){
-
+	// Check for all fields to be filled out and activate submit button when they are
 });
 
-$form.on( "submit", function( $inputs ){
+$form.on( "submit", function(){
+	// Validate form
 
+	// Hide form
+
+	// Display confirmation of info
 });
 
 
