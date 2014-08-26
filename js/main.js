@@ -15,6 +15,7 @@ function BillingForm( container, inputs ) {
 }
 
 BillingForm.prototype.validateForm = function( inputs ){
+	// Iterate through each input and verify valid input
 	inputs.each(function( i, input ){
 		var name = $(this).data("name"),
 			val = $(this).val();
@@ -54,7 +55,6 @@ BillingForm.prototype.validateForm = function( inputs ){
 				return;
 		}
 	});
-	// Iterate through each input and verify valid input
 };
 BillingForm.prototype.activateSubmit = function(){
 	// When all fields are properly filled, activate the submit button
