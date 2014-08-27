@@ -204,7 +204,56 @@ input[type='submit']:enabled:hover {
 	background: transparent;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-device-width: 630px) {
+	/*switch nav to hamburger*/
+	body {
+		font-size: 2em;
+	}
+	.nav-toggle {
+		display: block;
+	}
+	.header-wrap {
+		padding-bottom: 0;
+	}
+	.logo-cont {
+		/*float: none;*/
+	}
+	.nav-main {
+		float: none;
+	}
+	.nav-main ul {
+		clear: both;
+		display: none;
+		margin-top: 20px;
+	}
+	.nav-main .nav-item {
+		border-top: 1px solid #f88;
+		display: block;
+	}
+	.form-container {
+		padding: 2.5%;
+		width: 90%;
+	}
+	.nav-footer .nav-link {
+		display: block;
+		font-size: 1em;
+		float: none;
+		margin: 0 0 10px;
+		text-align: left;
+	}
+	.nav-footer .nav-link:hover {
+		border-bottom: none;
+	}
+	.copy {
+		color: #888;
+		display: block;
+		float: none;
+		font-size: 1em;
+		margin-top: 25px;
+		text-align: left;
+	}
+}
+@media only screen and (max-width: 630px) {
 	/*switch nav to hamburger*/
 	body {
 		font-size: 2em;
