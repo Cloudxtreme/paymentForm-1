@@ -209,6 +209,9 @@ input[type='submit']:enabled:hover {
 	body {
 		font-size: 2em;
 	}
+	header img {
+		width: 2em;
+	}
 	.nav-toggle {
 		display: block;
 	}
@@ -256,7 +259,7 @@ input[type='submit']:enabled:hover {
 @media only screen and (max-width: 630px) {
 	/*switch nav to hamburger*/
 	body {
-		font-size: 2em;
+		/*font-size: 2em;*/
 	}
 	.nav-toggle {
 		display: block;
