@@ -19,7 +19,13 @@
 			</div>
 
 			<nav class="nav-main right">
-				<div class="nav-toggle"></div>
+				<div class="nav-toggle right">
+					<div class="bar solid"></div>
+					<div class="bar transparent"></div>
+					<div class="bar solid"></div>
+					<div class="bar transparent"></div>
+					<div class="bar solid"></div>
+				</div>
 				<ul>
 					<li class="nav-item"><a class="nav-link" href="#">About</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Snack Box</a></li>
@@ -32,43 +38,62 @@
 
 	<section id="info" class="container group section">
 		<h2>Billing Information</h2>
-		<form id="customer-info" class="form-container">
-			<label for="first-name">First Name</label>
-			<input type="text" name="first-name" id="first-name" data-name="first-name">
+		<form id="customer-info" class="form-container group">
+			<div class="input-cont first-name">
+				<label for="first-name">First Name</label>
+				<input class="field cap" type="text" name="first-name" id="first-name" data-name="firstName">
+			</div>
 
-			<label for="last-name">Last Name</label>
-			<input type="text" name="last-name" id="last-name" data-name="last-name">
+			<div class="input-cont last-name">
+				<label for="last-name">Last Name</label>
+				<input class="field cap" type="text" name="last-name" id="last-name" data-name="lastName">
+			</div>
 
-			<label for="street-address-1">Street Address 1</label>
-			<input type="text" name="street-address-1" id="street-address-1" data-name="street-address-1">
+			<div class="input-cont email">
+				<label for="email">Email</label>
+				<input class="field" type="email" name="email" id="email" data-name="email">
+			</div>
 
-			<label for="street-address-2">Street Address 2</label>
-			<input type="text" name="street-address-2" id="street-address-2" data-name="street-address-2">
+			<div class="input-cont street-address-1">
+				<label for="street-address-1">Street Address 1</label>
+				<input class="field cap" type="text" name="street-address-1" id="street-address-1" data-name="streetAddress1">
+			</div>
 
-			<label for="city">City</label>
-			<input type="text" name="city" id="city" data-name="city">
+			<div class="input-cont street-address-2">
+				<label for="street-address-2">Street Address 2</label>
+				<input class="field cap" type="text" name="street-address-2" id="street-address-2" data-name="streetAddress2">
+			</div>
 
-			<label for="state">State</label>
-			<input type="text" name="state" id="state" data-name="state">
+			<div class="input-cont city">
+				<label for="city">City</label>
+				<input class="field cap" type="text" name="city" id="city" data-name="city">
+			</div>
 
-			<label for="zip">Zipcode</label>
-			<input type="text" name="zip" id="zip" data-name="zip">
+			<div class="input-cont state">
+				<label for="state">State</label>
+				<input class="field upper" type="text" name="state" id="state" data-name="state" maxlength='2'>
+			</div>
 
-			<input type="submit" disabled>
+			<div class="input-cont zip">
+				<label for="zip">Zipcode</label>
+				<input class="field" type="number" name="zip" id="zip" data-name="zip" maxlength='5'>
+			</div>
+
+			<input type="submit" id="submit" disabled>
 		</form>
 	</section>
 
 
-
 	<section id="confirmation" class="container group section">
 		<h2>Billing Confirmation</h2>
-		<p>Thanks! Your Information is below.</p>
-		<p class="info">
-			<span class="first-name"></span> <span class="last-name"></span></br>
-			<span class="street-address-1"></span></br>
-			<span class="street-address-2"></span></br>
-			<span class="city"></span>, <span class="state"></span>, <span class="zip"></span>
-		</p>
+		<p>Thanks! Your Information is below.</p></br>
+		<div class="info">
+			<p><span class="first-name"></span> <span class="last-name"></span></p>
+			<p><span class="email"></span></p>
+			<p><span class="street-address-1"></span></p>
+			<p><span class="street-address-2"></span></p>
+			<p><span class="city"></span> <span class="state"></span>, <span class="zip"></span></p>
+		</div>
 	</section>
 
 	<footer class="container group">
