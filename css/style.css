@@ -210,7 +210,7 @@ input[type='submit']:enabled:hover {
 		font-size: 2em;
 	}
 	header img {
-		width: 2em;
+		width: 200px;
 	}
 	.nav-toggle {
 		display: block;
