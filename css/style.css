@@ -325,7 +325,47 @@ input[type='submit']:enabled:hover {
 		width: 27%;
 	}
 }
- @media only screen and (max-width: 450px) {
+@media only screen and (max-device-width: 550px) {
+	.input-cont {
+		float: left;
+	}
+	.input-cont.first-name,
+	.input-cont.last-name {
+		width: 47%;
+	}
+	.input-cont.email,
+	.input-cont.street-address-1,
+	.input-cont.street-address-2 {
+		width: 98%;
+	}
+	.input-cont.city {
+		width: 48%;
+	}
+	.input-cont.state {
+		width: 15%;
+	}
+	.input-cont.zip {
+		width: 27%;
+	}
+}
+@media only screen and (max-width: 450px) {
+ 	.input-cont {
+		float: none;
+	}
+	.input-cont.first-name,
+	.input-cont.last-name,
+	.input-cont.city,
+	.input-cont.state,
+	.input-cont.zip {
+		width: 98%;
+	}
+	.input-cont.last-name,
+	.input-cont.state,
+	.input-cont.zip {
+		margin-left: 0;
+	}
+ }
+@media only screen and (max-device-width: 450px) {
  	.input-cont {
 		float: none;
 	}
