@@ -204,8 +204,11 @@ input[type='submit']:enabled:hover {
 	background: transparent;
 }
 
-@media only screen and (max-device-width: 600px) {
+@media only screen and (max-width: 600px) {
 	/*switch nav to hamburger*/
+	body {
+		font-size: 2em;
+	}
 	.nav-toggle {
 		display: block;
 	}
@@ -250,7 +253,7 @@ input[type='submit']:enabled:hover {
 		text-align: left;
 	}
 }
-@media only screen and (max-device-width: 550px) {
+@media only screen and (max-width: 550px) {
 	.input-cont {
 		float: left;
 	}
@@ -273,7 +276,7 @@ input[type='submit']:enabled:hover {
 		width: 27%;
 	}
 }
- @media only screen and (max-device-width: 450px) {
+ @media only screen and (max-width: 450px) {
  	.input-cont {
 		float: none;
 	}
