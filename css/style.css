@@ -39,7 +39,7 @@ h1 {
 }
 h2 {
 	display: block;
-	font-size: 20px;
+	font-size: 1.5em;
 	margin-bottom: 20px;
 }
 p {
@@ -63,11 +63,11 @@ ul {
 label,
 input {
 	display: block;
-	font-size: 16px;
+	font-size: 1em;
 }
 label {
 	color: #777;
-	font-size: 14px;
+	font-size: .9em;
 }
 input.field {
 	border: 2px solid #eee;
@@ -94,7 +94,7 @@ input[type='submit'] {
 	border: 2px solid #ddd;
 	color: #777;
 	cursor: pointer;
-	font-size: 14px;
+	font-size: .9em;
 	outline: none;
 	padding: 5px 10px;
 }
@@ -157,7 +157,7 @@ input[type='submit']:enabled:hover {
 	color: #fff;
 	display: block;
 	font-family: "Bree Serif", serif;
-	font-size: 20px;
+	font-size: 1.5em;
 	font-weight: 300;
 	padding: 10px;
 	text-decoration: none;
@@ -173,7 +173,7 @@ input[type='submit']:enabled:hover {
 .nav-footer .nav-link {
 	color: #888;
 	display: block;
-	font-size: 12px;
+	font-size: .8em;
 	float: left;
 	margin: 0 5px;
 	text-decoration: none;
@@ -183,7 +183,7 @@ input[type='submit']:enabled:hover {
 }
 .copy {
 	color: #888;
-	font-size: 12px;
+	font-size: .8em;
 }
 
 /*hamburger icon*/
@@ -233,7 +233,7 @@ input[type='submit']:enabled:hover {
 	}
 	.nav-footer .nav-link {
 		display: block;
-		font-size: 14px;
+		font-size: 1em;
 		float: none;
 		margin: 0 0 10px;
 		text-align: left;
@@ -245,7 +245,7 @@ input[type='submit']:enabled:hover {
 		color: #888;
 		display: block;
 		float: none;
-		font-size: 12px;
+		font-size: 1em;
 		margin-top: 25px;
 		text-align: left;
 	}
