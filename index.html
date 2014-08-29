@@ -37,8 +37,9 @@
 	</div>
 
 	<section id="info" class="container group section">
-		<h2>Billing Information</h2>
-		<form id="customer-info" class="form-container group">
+		<h2>Customer Information</h2>
+		<form id="billing-info" class="form-container group">
+			<h3>Billing Information</h3>
 			<div class="input-cont first-name">
 				<label for="first-name">First Name</label>
 				<input class="field cap" type="text" name="first-name" id="first-name" data-name="firstName">
@@ -79,20 +80,92 @@
 				<input class="field" type="number" name="zip" id="zip" data-name="zip" maxlength='5'>
 			</div>
 
+			<div class="input-cont CC-number">
+				<label for="CC-number">Credit Card Number</label>
+				<input class="field" type="number" name="CC-number" id="CC-number" data-name="CCNumber" maxlength='16' placeholder="1234567890123456">
+			</div>
+
+			<div class="input-cont CC-CVS">
+				<label for="CC-CVS">CVS</label>
+				<input class="field" type="number" name="CC-CVS" id="CC-CVS" data-name="CCCVS" maxlength='3' placeholder="333">
+			</div>
+
+			<div class="input-cont CC-month">
+				<label for="CC-month">Exp Month</label>
+				<input class="field" type="number" name="CC-month" id="CC-month" data-name="CCMonth" maxlength='2' placeholder="12">
+			</div>
+
+			<div class="input-cont CC-year">
+				<label for="CC-year">Exp Year</label>
+				<input class="field" type="number" name="CC-year" id="CC-year" data-name="CCYear" maxlength='4' placeholder="2015">
+			</div>
+
+			<div class="input-cont clone">
+				<input type="checkbox" id="clone" name="clone">
+				<label for="clone">Billing address is same as shipping address</label>
+			</div>
+
+			<h3>Shipping Information</h3>
+
+			<div class="input-cont first-name">
+				<label for="shipping-first-name">First Name</label>
+				<input class="field cap" type="text" name="shippingfirst-name" id="shipping-first-name" data-name="shippingFirstName">
+			</div>
+
+			<div class="input-cont last-name">
+				<label for="shipping-last-name">Last Name</label>
+				<input class="field cap" type="text" name="shipping-last-name" id="shipping-last-name" data-name="shippingLastName">
+			</div>
+
+			<div class="input-cont street-address-1">
+				<label for="shipping-street-address-1">Street Address 1</label>
+				<input class="field cap" type="text" name="shipping-street-address-1" id="shipping-street-address-1" data-name="shippingStreetAddress1">
+			</div>
+
+			<div class="input-cont street-address-2">
+				<label for="shipping-street-address-2">Street Address 2</label>
+				<input class="field cap" type="text" name="shipping-street-address-2" id="shipping-street-address-2" data-name="shippingStreetAddress2">
+			</div>
+
+			<div class="input-cont city">
+				<label for="shipping-city">City</label>
+				<input class="field cap" type="text" name="shipping-city" id="shipping-city" data-name="shippingCity">
+			</div>
+
+			<div class="input-cont state">
+				<label for="shipping-state">State</label>
+				<input class="field upper" type="text" name="shipping-state" id="shipping-state" data-name="shippingState" maxlength='2'>
+			</div>
+
+			<div class="input-cont zip">
+				<label for="shipping-zip">Zipcode</label>
+				<input class="field" type="number" name="shipping-zip" id="shipping-zip" data-name="shippingZip" maxlength='5'>
+			</div>
+
 			<input type="submit" id="submit" disabled>
 		</form>
 	</section>
 
 
 	<section id="confirmation" class="container group section">
-		<h2>Billing Confirmation</h2>
-		<p>Thanks! Your Information is below.</p></br>
+		<h2>Confirmation</h2>
+		<p class="mar-btm">Thanks!</p>
 		<div class="info">
-			<p><span class="first-name"></span> <span class="last-name"></span></p>
-			<p><span class="email"></span></p>
-			<p><span class="street-address-1"></span></p>
-			<p><span class="street-address-2"></span></p>
-			<p><span class="city"></span> <span class="state"></span>, <span class="zip"></span></p>
+			<h3>Billing Information</h3>
+			<p><span class="first-name">Roy</span> <span class="last-name">Kim</span></p>
+			<p><span class="email">rykim79@gmail.com</span></p>
+			<p><span class="street-address-1">1000 S Main Street</span></p>
+			<p><span class="street-address-2">Apt 104</span></p>
+			<p class="mar-btm"><span class="city">Chicago</span> <span class="state">IL</span>, <span class="zip">60606</span></p>
+			<p><span class="key">CC Number:</span> <span class="CC-number">XXXX-XXXX-XXXX-1234</span></p>
+			<p><span class="key">Exp:</span> <span class="CC-month">11</span>/<span class="CC-year">2014</span></p>
+
+			<h3>Shipping Information</h3>
+			<p><span class="shipping-first-name">Roy</span> <span class="shipping-last-name">Kim</span></p>
+			<p><span class="shipping-street-address-1">1000 S Main Street</span></p>
+			<p><span class="shipping-street-address-2">Apt 104</span></p>
+			<p class="mar-btm"><span class="shipping-city">Chicago</span> <span class="shipping-state">IL</span>, <span class="shipping-zip">60606</span></p>
+
 		</div>
 	</section>
 

@@ -3,23 +3,32 @@ function BillingForm( container, inputs, submit ) {
 	this.inputs = inputs;
 	this.submit = submit;
 
-	this.customerInfo = {};
+	this.billingInfo = {};
+	this.shippingInfo = {};
 	this.validation = {
-		firstName: false,
-		lastName: false,
+		firstName:      false,
+		lastName:       false,
+		email:          false,
 		streetAddress1: false,
-		city: false,
-		state: false,
-		zip: false
+		city:           false,
+		state:          false,
+		zip:            false,
+		CCNumber:       false,
+		CCCVS:          false,
+		CCMonth:        false,
+		CCYear:         false
 	};
 }
 
 BillingForm.prototype.validateField = function( input ){
 	var val = input.val(),
-		name = input.data('name');
+		name = input.data("name");
 
 	if ( val ) {
-		this.validation[name] = true;
+		if ( name === "firstName" || name ===  "lastName" || name ===  "email" || name ===  "streetAddress1" || name ===  "city" ) {
+			this.validation[name] = true;
+			console.log(this.validation);
+		}
 
 		if ( input.hasClass("cap") ) {
 			// Capitalize val
@@ -28,12 +37,50 @@ BillingForm.prototype.validateField = function( input ){
 			});
 			// Replace input val with capitalized value
 			input.val(val);
-		} else if ( input.hasClass("upper") ) {
+		} 
+		if ( input.hasClass("upper") ) {
 			input.val(input.val().toUpperCase());
 		}
-
+		// if name = zip || CCNumber || CCmonth || CCyear
+		switch(name) {
+			case "zip":
+				if( val.length === 5 ) {
+					this.validation[name] = true;
+				}
+				break;
+			case "state":
+				if( val.length === 2 ) {
+					this.validation[name] = true;
+				}
+				break;
+			case "CCNumber":
+				if( val.length === 16 ) {
+					this.validation[name] = true;
+				}
+				break;
+			case "CCMonth":
+				if( val.length === 2 ) {
+					this.validation[name] = true;
+				}
+				break;
+			case "CCYear":
+				if( val.length === 4 ) {
+					this.validation[name] = true;
+				}
+				break;
+			default:
+				return;
+		}
 	} else {
 		this.validation[name] = false;
+	}
+};
+
+BillingForm.prototype.cloneInfo = function( input, shippingInfo ){
+	if ( input.checked === true ) {
+		console.log("is true");
+	} else {
+		console.log("is false");
 	}
 };
 
@@ -41,7 +88,7 @@ BillingForm.prototype.activateSubmit = function(  ){
 	// When all fields are properly filled, activate the submit button
 	var bfv = this.validation;
 
-	if (bfv.firstName === true && bfv.lastName === true && bfv.streetAddress1 === true && bfv.city === true && bfv.state === true && bfv.zip === true ) {
+	if (bfv.firstName === true && bfv.lastName === true && bfv.streetAddress1 === true && bfv.city === true && bfv.state === true && bfv.zip === true && bfv.CCNumber === true && bfv.CCCVS === true  && bfv.CCMonth === true && bfv.CCYear === true) {
 		
 		this.submit.prop('disabled', false);
 
@@ -50,28 +97,53 @@ BillingForm.prototype.activateSubmit = function(  ){
 	}
 };
 
-BillingForm.prototype.setInfo = function( obj ){
-	// Set info in customerInfo object
-	this.customerInfo.firstName = obj.firstName;
-	this.customerInfo.lastName = obj.lastName;
-	this.customerInfo.email = obj.email;
-	this.customerInfo.streetAddress1 = obj.streetAddress1;
-	this.customerInfo.streetAddress2 = obj.streetAddress2;
-	this.customerInfo.city = obj.city;
-	this.customerInfo.state = obj.state;
-	this.customerInfo.zip = obj.zip;
+BillingForm.prototype.setInfo = function( billingInfo, shippingInfo ){
+	// Set info in billingInfo object
+	this.billingInfo.firstName =       billingInfo.firstName;
+	this.billingInfo.lastName =        billingInfo.lastName;
+	this.billingInfo.email =           billingInfo.email;
+	this.billingInfo.streetAddress1 =  billingInfo.streetAddress1;
+	this.billingInfo.streetAddress2 =  billingInfo.streetAddress2;
+	this.billingInfo.city =            billingInfo.city;
+	this.billingInfo.state =           billingInfo.state;
+	this.billingInfo.zip =             billingInfo.zip;
+	this.billingInfo.CCNumber =        billingInfo.CCNumber;
+	this.billingInfo.CCCVS =           billingInfo.CCCVS;
+	this.billingInfo.CCMonth =         billingInfo.CCMonth;
+	this.billingInfo.CCYear =          billingInfo.CCYear;
+
+	// Set info in shippingInfo object
+	this.shippingInfo.firstName =      shippingInfo.firstName;
+	this.shippingInfo.lastName =       shippingInfo.lastName;
+	this.shippingInfo.streetAddress1 = shippingInfo.streetAddress1;
+	this.shippingInfo.streetAddress2 = shippingInfo.streetAddress2;
+	this.shippingInfo.city =           shippingInfo.city;
+	this.shippingInfo.state =          shippingInfo.state;
+	this.shippingInfo.zip =            shippingInfo.zip;
 };
 
-BillingForm.prototype.displayConfirmation = function( info, confirmation, obj ){
-	// Pull info from customerInfo object and display
-	obj.firstName.text(this.customerInfo.firstName);
-	obj.lastName.text(this.customerInfo.lastName);
-	obj.email.text(this.customerInfo.email);
-	obj.streetAddress1.text(this.customerInfo.streetAddress1);
-	obj.streetAddress2.text(this.customerInfo.streetAddress2);
-	obj.city.text(this.customerInfo.city);
-	obj.state.text(this.customerInfo.state);
-	obj.zip.text(this.customerInfo.zip);
+BillingForm.prototype.displayConfirmation = function( info, confirmation, billingInfo, shippingInfo ){
+	// Set info from billingInfo object and display
+	billingInfo.firstName.text(this.billingInfo.firstName);
+	billingInfo.lastName.text(this.billingInfo.lastName);
+	billingInfo.email.text(this.billingInfo.email);
+	billingInfo.streetAddress1.text(this.billingInfo.streetAddress1);
+	billingInfo.streetAddress2.text(this.billingInfo.streetAddress2);
+	billingInfo.city.text(this.billingInfo.city);
+	billingInfo.state.text(this.billingInfo.state);
+	billingInfo.zip.text(this.billingInfo.zip);
+	billingInfo.CCNumber.text("XXXX-XXXX-XXXX-" + this.billingInfo.CCNumber.substring(12,16));
+	billingInfo.CCCVS.text(this.billingInfo.CCCVS);
+	billingInfo.CCMonth.text(this.billingInfo.CCMonth);
+	billingInfo.CCYear.text(this.billingInfo.CCYear);
+
+	shippingInfo.firstName.text(this.shippingInfo.firstName);
+	shippingInfo.lastName.text(this.shippingInfo.lastName);
+	shippingInfo.streetAddress1.text(this.shippingInfo.streetAddress1);
+	shippingInfo.streetAddress2.text(this.shippingInfo.streetAddress2);
+	shippingInfo.city.text(this.shippingInfo.city);
+	shippingInfo.state.text(this.shippingInfo.state);
+	shippingInfo.zip.text(this.shippingInfo.zip);
 
 	info.hide();
 	confirmation.show();
@@ -79,16 +151,17 @@ BillingForm.prototype.displayConfirmation = function( info, confirmation, obj ){
 
 
 (function(){
-// BILLING FORM
-var $info = $("#info"),
+// BILLING FORM /////////////////////////////////////
+var $info =         $("#info"),
 	 $confirmation = $("#confirmation"),
-	 $form = $("#customer-info"),
-	 $inputs = $form.find("input.field"),
-	 $submit = $form.find("#submit");
+	 $billingForm =  $("#billing-info"),
+	 $inputs =       $billingForm.find("input.field"),
+	 $clone =        $billingForm.find("#clone"),
+	 $submit =       $billingForm.find("#submit");
 
-var billingForm = new BillingForm( $form, $inputs, $submit );
+var billingForm = new BillingForm( $billingForm, $inputs, $submit );
 
-$confirmation.hide();
+// $confirmation.hide();
 
 $inputs.on( "keyup", function(){
 	// Check for all fields to be filled out and activate submit button when they are
@@ -96,33 +169,55 @@ $inputs.on( "keyup", function(){
 	billingForm.activateSubmit( $submit );
 });
 
-$form.on("submit", function(e){
+// Clone shipping address from billing address
+$clone.change(function(){
+	billingForm.cloneInfo(this)
+});
+
+$billingForm.on("submit", function(e){
 	// Set customer info
 	e.preventDefault();
 	billingForm.setInfo({
-		firstName: $("#first-name").val(),
-		lastName: $("#last-name").val(),
-		email: $("#email").val(),
+		firstName:      $("#first-name").val(),
+		lastName:       $("#last-name").val(),
+		email:          $("#email").val(),
 		streetAddress1: $("#street-address-1").val(),
 		streetAddress2: $("#street-address-2").val(),
-		city: $("#city").val(),
-		state: $("#state").val(),
-		zip: $("#zip").val()
+		city:           $("#city").val(),
+		state:          $("#state").val(),
+		zip:            $("#zip").val(),
+		CCNumber:       $("#CC-number").val(),
+		CCCVS:          $("#CC-CVS").val(),
+		CCMonth:        $("#CC-month").val(),
+		CCYear:         $("#CC-year").val()
 	});
 	// Display customer info
 	billingForm.displayConfirmation( $info, $confirmation, {
-		firstName: $(".info .first-name"),
-		lastName: $(".info .last-name"),
-		email: $(".info .email"),
+		firstName:      $(".info .first-name"),
+		lastName:       $(".info .last-name"),
+		email:          $(".info .email"),
 		streetAddress1: $(".info .street-address-1"),
 		streetAddress2: $(".info .street-address-2"),
-		city: $(".info .city"),
-		state: $(".info .state"),
-		zip: $(".info .zip")
+		city:           $(".info .city"),
+		state:          $(".info .state"),
+		zip:            $(".info .zip"),
+		CCNumber:       $(".info .CC-number"),
+		CCCVS:          $(".info .CC-CVS"),
+		CCMonth:        $(".info .CC-month"),
+		CCYear:         $(".info .CC-year")
+	},{
+		firstName:      $(".info .shipping-first-name"),
+		lastName:       $(".info .shipping-last-name"),
+		email:          $(".info .shipping-email"),
+		streetAddress1: $(".info .shipping-street-address-1"),
+		streetAddress2: $(".info .shipping-street-address-2"),
+		city:           $(".info .shipping-city"),
+		state:          $(".info .shipping-state"),
+		zip:            $(".info .shipping-zip")
 	});
 });
 
-// NAVIGATION TOGGLE
+// NAVIGATION TOGGLE ////////////////////////////////
 var $toggle = $(".nav-toggle"),
 	$menu = $(".nav-main ul");
 

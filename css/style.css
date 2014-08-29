@@ -38,14 +38,31 @@ h6 {
 h1 {
 }
 h2 {
+	/*color: #C90000;*/
 	display: block;
+	font-family: "Bree Serif", serif;
 	font-size: 1.5em;
+	font-weight: normal;
 	margin-bottom: 20px;
+}
+h3 {
+	background: #C90000;
+	border: 2px solid #C90000;
+	color: #fff;
+	clear: both;
+	display: block;
+	font-size: 1.2em;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	padding: 5px 0;
 }
 p {
 	color: #777;
+	margin-bottom: .2em;
 }
-
+.mar-btm {
+	margin-bottom: .5em;
+}
 .center {
 	text-align: center;
 }
@@ -54,6 +71,10 @@ p {
 }
 .right {
 	float: right;
+}
+.key {
+	color: #333;
+	text-decoration: underline;
 }
 
 ul {
@@ -68,6 +89,11 @@ input {
 label {
 	color: #777;
 	font-size: .9em;
+}
+label[for="clone"] {
+	display: inline-block;
+	margin-bottom: 14px;
+	margin-top: 4px;
 }
 input.field {
 	border: 2px solid #eee;
@@ -88,13 +114,21 @@ input:invalid {
 input.field:focus {
 	border: 2px solid inherit;
 }
+input[type="checkbox"] {
+	float: left;
+}
 input[type='submit'] {
 	background: #f8f8f8;
 	background: linear-gradient(#f8f8f8, #eef, #ddf);
 	border: 2px solid #ddd;
 	color: #777;
+	clear: both;
 	cursor: pointer;
+	display: block;
+	float: left;
+	/*width: 100%;*/
 	font-size: .9em;
+	/*margin-top: 20px;*/
 	outline: none;
 	padding: 5px 10px;
 }
@@ -113,30 +147,40 @@ input[type='submit']:enabled:hover {
 }
 .input-cont.first-name,
 .input-cont.last-name {
-	width: 48%;
+	width: 47%;
 }
 .input-cont.last-name {
 	margin-left: 4%;
 }
 .input-cont.email,
+.input-cont.CC-number,
 .input-cont.street-address-1,
-.input-cont.street-address-2 {
-	width: 100%;
+.input-cont.street-address-2,
+.input-cont.clone {
+	width: 98%;
 }
 .input-cont.city {
 	width: 48%;
 }
 .input-cont.state {
 	margin-left: 4%;
-	width: 16%;
+	width: 14%;
 }
 .input-cont.zip {
 	margin-left: 4%;
 	width: 28%;
 }
+.input-cont.CC-CVS {
+	width: 32%;
+}
+.input-cont.CC-month,
+.input-cont.CC-year {
+	margin-left: 4%;
+	width: 29%;
+}
 .form-container {
 	border: 1px solid #ccc;
-	padding: 2.5%;
+	padding: 1% 2%;
 	width: 500px;
 }
 .header-wrap {
@@ -157,7 +201,7 @@ input[type='submit']:enabled:hover {
 	color: #fff;
 	display: block;
 	font-family: "Bree Serif", serif;
-	font-size: 1.5em;
+	font-size: 1.3em;
 	font-weight: 300;
 	padding: 10px;
 	text-decoration: none;
@@ -323,7 +367,8 @@ input[type='submit']:enabled:hover {
 	}
 	.input-cont.email,
 	.input-cont.street-address-1,
-	.input-cont.street-address-2 {
+	.input-cont.street-address-2,
+	.input-cont.CC-number {
 		width: 98%;
 	}
 	.input-cont.city {
@@ -334,6 +379,13 @@ input[type='submit']:enabled:hover {
 	}
 	.input-cont.zip {
 		width: 27%;
+	}
+	.input-cont.CC-CVS {
+		width: 32%;
+	}
+	.input-cont.CC-month,
+	.input-cont.CC-year {
+		width: 29%;
 	}
 }
 @media only screen and (max-device-width: 550px) {
@@ -346,7 +398,8 @@ input[type='submit']:enabled:hover {
 	}
 	.input-cont.email,
 	.input-cont.street-address-1,
-	.input-cont.street-address-2 {
+	.input-cont.street-address-2,
+	.input-cont.CC-number {
 		width: 98%;
 	}
 	.input-cont.city {
@@ -358,6 +411,13 @@ input[type='submit']:enabled:hover {
 	.input-cont.zip {
 		width: 27%;
 	}
+	.input-cont.CC-CVS {
+		width: 32%;
+	}
+	.input-cont.CC-month,
+	.input-cont.CC-year {
+		width: 29%;
+	}
 }
 @media only screen and (max-width: 450px) {
  	.input-cont {
@@ -367,12 +427,17 @@ input[type='submit']:enabled:hover {
 	.input-cont.last-name,
 	.input-cont.city,
 	.input-cont.state,
-	.input-cont.zip {
+	.input-cont.zip,
+	.input-cont.CC-CVS,
+	.input-cont.CC-month,
+	.input-cont.CC-year {
 		width: 98%;
 	}
 	.input-cont.last-name,
 	.input-cont.state,
-	.input-cont.zip {
+	.input-cont.zip,
+	.input-cont.CC-month,
+	.input-cont.CC-year {
 		margin-left: 0;
 	}
  }
@@ -384,12 +449,17 @@ input[type='submit']:enabled:hover {
 	.input-cont.last-name,
 	.input-cont.city,
 	.input-cont.state,
-	.input-cont.zip {
+	.input-cont.zip,
+	.input-cont.CC-CVS,
+	.input-cont.CC-month,
+	.input-cont.CC-year {
 		width: 98%;
 	}
 	.input-cont.last-name,
 	.input-cont.state,
-	.input-cont.zip {
+	.input-cont.zip,
+	.input-cont.CC-month,
+	.input-cont.CC-year {
 		margin-left: 0;
 	}
  }
